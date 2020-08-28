@@ -22,3 +22,4 @@ Route::get('/', function () {
 Route::get('/merhaba','HomeController@merhaba');
 Route::get('/kayit','HomeController@createView');
 Route::post('/kaydet','HomeController@create');
+Route::get('/index','HomeController@list');

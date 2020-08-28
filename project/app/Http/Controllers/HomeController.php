@@ -29,6 +29,7 @@ class HomeController extends Controller
              ->select() //burda hem kullanıcı adını hem de ürün adını almayı yap!!!
              ->get();
          */
+
         //dd($products);
         return view('Merhaba', compact('products'));
     }
@@ -41,6 +42,12 @@ class HomeController extends Controller
     public function create()
     {
         return 'Kayıt başarıyla tamamlandı';
+    }
+
+    public function list(){
+        $users = User::all();
+        return view ('users.index',compact('users'));
+
     }
 
 }
