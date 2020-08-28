@@ -23,12 +23,12 @@ class HomeController extends Controller
         //compact kısmı with kısmını gerçekleştiriyor.Kısa yol
 
 
-        //$products=DB::table('users')
         $products = Product::with(['user'])->get();
-        /*   ->join('products','products.created_by','=','users.id')
-             ->select() //burda hem kullanıcı adını hem de ürün adını almayı yap!!!
-             ->get();
-         */
+        $users=DB::table('users')
+            ->join('products','products.created_by','=','users.id')
+            ->select('users.*','users.name','products.name') //burda hem kullanıcı adını hem de ürün adını almayı yap!!!
+            ->get();
+
 
         //dd($products);
         return view('Merhaba', compact('products'));
